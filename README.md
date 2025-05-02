@@ -1,4 +1,4 @@
-CGESA Project - ScriptRunner (Java Scripting Engine Support App)
+ScriptRunner 
 ------------------------------------------------------------------
 
 This Java application demonstrates running JavaScript and Python code from Java
