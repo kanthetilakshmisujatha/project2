@@ -1,92 +1,44 @@
-### ScriptEngine
+CGESA Project - ScriptRunner (Java Scripting Engine Support App)
+------------------------------------------------------------------
 
-## Technical Approach & Design:
-Tools & Libraries Used
-# Core Components:
+This Java application demonstrates running JavaScript and Python code from Java
+using the javax.script API. It supports Graal.js for JavaScript and Jython for Python.
 
-1.GraalVM JavaScript engine (js.jar)
+REQUIREMENTS:
+-------------
+1. Java 11 or higher
+2. External libraries (place in 'lib/' folder):
+   - graal-sdk.jar
+   - js-scriptengine.jar
+   - truffle-api.jar
+   - icu4j.jar
+   - jython-standalone.jar
 
-2.GraalVM Python engine (python-embed.jar)
+DOWNLOAD LINKS:
+---------------
+- GraalVM JavaScript:
+  https://github.com/oracle/graaljs
 
-3.JSR-223 Scripting API (javax.script)
+- ICU4J:
+  https://github.com/unicode-org/icu
 
-# Supporting Libraries:
+- Jython:
+  https://www.jython.org/downloads.html
 
-1.Graal SDK (graal-sdk.jar)
+USAGE:
+------
+1. Compile:
+   javac -cp "lib/*" ScriptRunner.java -d target
 
-2.Truffle API (truffle-api.jar)
+2. Run:
+   java -cp "target;lib/*" ScriptRunner
 
-## Key Design Decisions
-# Embedded Execution:
+This will:
+- Print classpath info
+- List all detected scripting engines
+- Evaluate JavaScript expressions using Graal.js
+- Evaluate Python expressions using Jython
 
-1.Uses JVM-based script engines
+## outpus:
 
-2.Avoids ProcessBuilder for security and performance
-
-# Language Support:
-
-1.JavaScript via Graal.js
-
-2.Python via GraalVM Python
-
-# Thread Safety:
-
-1.Uses ThreadLocal engine instances
-
-2.Avoids engine creation overhead per request
-
-# Dependency Handling:
-
-1.Automatic resolution of standard libraries
-
-2.Requires manual setup for third-party modules
-
-## Assumptions
-# Environment:
-
-1.GraalVM or compatible JVM installed
-
-2.All required JARs in lib/ directory
-
-# Performance:
-
-1.Suitable for medium workloads
-
-2.Not optimized for massive parallel execution
-
-# Security:
-
-1.Scripts run with JVM security manager
-
-2.No sandboxing beyond JVM defaults
-
-# Architecture
-[ScriptRunner]
-  │
-  ├── [GraalJS Engine] → JavaScript Execution
-  │
-  └── [GraalPython Engine] → Python Execution
-       │
-       └── [Python Stdlib] → Built-in modules
-# Limitations
-1.Python library support requires GraalVM compatibility
-
-2.No built-in dependency management for external packages
-
-3.Startup overhead for engine initialization
-
-# This version:
-
-Clearly lists technical components
-
-Explains the reasoning behind key decisions
-
-Documents implicit assumptions
-
-Includes a simple architecture diagram
-
-Acknowledges limitations upfront
-
-Would you like me to adjust any section or add specific implementation details?
-
-New chat
+![image](https://github.com/user-attachments/assets/40d6a70c-f326-4f61-ac95-c5605d487d2b)
