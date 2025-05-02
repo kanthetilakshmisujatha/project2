@@ -1,64 +1,64 @@
-## ScriptEngine
+### ScriptEngine
 
-# Technical Approach & Design:
+## Technical Approach & Design:
 Tools & Libraries Used
 # Core Components:
 
-GraalVM JavaScript engine (js.jar)
+1.GraalVM JavaScript engine (js.jar)
 
-GraalVM Python engine (python-embed.jar)
+2.GraalVM Python engine (python-embed.jar)
 
-JSR-223 Scripting API (javax.script)
+3.JSR-223 Scripting API (javax.script)
 
 # Supporting Libraries:
 
-Graal SDK (graal-sdk.jar)
+1.Graal SDK (graal-sdk.jar)
 
-Truffle API (truffle-api.jar)
+2.Truffle API (truffle-api.jar)
 
 ## Key Design Decisions
 # Embedded Execution:
 
-Uses JVM-based script engines
+1.Uses JVM-based script engines
 
-Avoids ProcessBuilder for security and performance
+2.Avoids ProcessBuilder for security and performance
 
 # Language Support:
 
-JavaScript via Graal.js
+1.JavaScript via Graal.js
 
-Python via GraalVM Python
+2.Python via GraalVM Python
 
 # Thread Safety:
 
-Uses ThreadLocal engine instances
+1.Uses ThreadLocal engine instances
 
-Avoids engine creation overhead per request
+2.Avoids engine creation overhead per request
 
 # Dependency Handling:
 
-Automatic resolution of standard libraries
+1.Automatic resolution of standard libraries
 
-Requires manual setup for third-party modules
+2.Requires manual setup for third-party modules
 
-# Assumptions
-Environment:
+## Assumptions
+# Environment:
 
-GraalVM or compatible JVM installed
+1.GraalVM or compatible JVM installed
 
-All required JARs in lib/ directory
+2.All required JARs in lib/ directory
 
 # Performance:
 
-Suitable for medium workloads
+1.Suitable for medium workloads
 
-Not optimized for massive parallel execution
+2.Not optimized for massive parallel execution
 
-Security:
+# Security:
 
-Scripts run with JVM security manager
+1.Scripts run with JVM security manager
 
-No sandboxing beyond JVM defaults
+2.No sandboxing beyond JVM defaults
 
 # Architecture
 [ScriptRunner]
@@ -69,11 +69,11 @@ No sandboxing beyond JVM defaults
        │
        └── [Python Stdlib] → Built-in modules
 # Limitations
-Python library support requires GraalVM compatibility
+1.Python library support requires GraalVM compatibility
 
-No built-in dependency management for external packages
+2.No built-in dependency management for external packages
 
-Startup overhead for engine initialization
+3.Startup overhead for engine initialization
 
 # This version:
 
